@@ -1,0 +1,15 @@
+{
+  "name": "fullstack-code-test-backend-georgios_rounis",
+  "version": "1.0.0",
+  "description": "This is a coding test for the position of Full Stack Engineer at Skyqraft. The test is divided into two parts: a frontend part and a backend part. The frontend part is to be done in React and the backend part is to be done in (preferrably) Python. The test is expected to take approximately 4 hours to complete.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
