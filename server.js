@@ -1,4 +1,10 @@
-const a = 3;
-const b = 4;
-const c = a+b;
-console.log(c);
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+app.use(bodyParser.json());
+
+
+app.listen(3000, () => {
+    console.log('app is running on port 3000');
+})
