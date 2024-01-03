@@ -1,13 +1,28 @@
 import express from 'express';
-import cors from 'cors'
-import {findIPAddress, handleIPAddressCountryAndCity} from './controllers/ipAddress.mjs'
+import cors from 'cors';
+import sqlite3 from 'sqlite3';
+import {handleIPAddressCountryAndCity} from './controllers/ipAddress.mjs';
 
 const port = 3000;
 const app = express();
 app.use(cors());
 
-app.get('/getip', (req, res) => {findIPAddress(req,res);});
-app.get('/ipapi',(req,res) => {handleIPAddressCountryAndCity(req,res)});
+// SQLite database setup
+const db = new sqlite3.Database('./visitors.db');
+
+// Create a table to store visitor data (IP address, country, city, timestamp)
+db.serialize(() => {
+    db.run(`CREATE TABLE IF NOT EXISTS Visitors (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      ip TEXT,
+      country TEXT,
+      region Text,
+      city TEXT,
+      timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+  });
+
+app.get('/ipapi',(req,res) => {handleIPAddressCountryAndCity(req,res,db)});
 
 app.listen(port, () => {
     console.log(`app is running on port ${port}`);
