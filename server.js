@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import sqlite3 from 'sqlite3';
 import {handleIPAddressCountryAndCity} from './controllers/ipAddress.mjs';
+import {totalUsersPerCountry} from './controllers/dbQueries.mjs';
+
 
 const port = 3000;
 const app = express();
@@ -23,6 +25,7 @@ db.serialize(() => {
   });
 
 app.get('/ipapi',(req,res) => {handleIPAddressCountryAndCity(req,res,db)});
+app.get('/users-count', (req, res) => { totalUsersPerCountry(req,res,db)});
 
 app.listen(port, () => {
     console.log(`app is running on port ${port}`);

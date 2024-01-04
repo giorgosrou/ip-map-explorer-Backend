@@ -35,5 +35,4 @@ const handleIPAddressCountryAndCity = (req, res, db) => {
     });
 };
 
-
 export { handleIPAddressCountryAndCity };
