@@ -14,7 +14,8 @@ const totalUsersPerCountry = (req, res, db) => {
           console.error('Error fetching total users:', err);
           res.status(500).json({ error: 'Failed to retrieve total users' });
         } else {
-          const totalUsers = result.rows.length > 0 ? result.rows[0].totalUsers : 0;
+          const totalUsers = result.rows.length > 0 ? result.rows[0].totalusers : 0;
+          console.log(totalUsers);
           res.json({ totalUsers });
         }
       }
