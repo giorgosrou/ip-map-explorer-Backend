@@ -24,6 +24,7 @@ db.serialize(() => {
     )`);
   });
 
+//Endpoints
 app.get('/ipapi',(req,res) => {handleIPAddressCountryAndCity(req,res,db)});
 app.get('/users-count', (req, res) => { totalUsersPerCountry(req,res,db)});
 
