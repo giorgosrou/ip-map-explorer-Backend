@@ -1,6 +1,9 @@
 import fetch from 'node-fetch';
 
 const handleIPAddressCountryAndCity = (req, res, db) => {
+  //const userIP = req.ip;
+  //console.log(userIP);
+  //console.log(`http://ip-api.com/json/${userIP}`)
   fetch('http://ip-api.com/json/?fields=61439')
     .then((response) => response.json())
     .then((data) => {
