@@ -1,7 +1,8 @@
 import fetch from 'node-fetch';
 
 const handleIPAddressCountryAndCity = (req, res, db) => {
-  fetch('http://ip-api.com/json/?fields=61439')
+  const userIP = req.ip;
+  fetch(`http://ip-api.com/json/${userIP}`)
     .then((response) => response.json())
     .then((data) => {
       // Check if the IP exists in the database

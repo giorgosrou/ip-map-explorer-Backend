@@ -6,7 +6,7 @@ import {totalUsersPerCountry} from './controllers/dbQueries.mjs';
 
 const port = 3000;
 const app = express();
-app.set('trust proxy', true);
+//app.set('trust proxy', true);
 app.use(cors());
 
 // PostgreSQL configuration
