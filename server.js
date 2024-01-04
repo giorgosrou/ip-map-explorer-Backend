@@ -10,10 +10,10 @@ app.use(cors());
 
 // PostgreSQL configuration
 const db = new pg.Pool({
-  user: 'postgres',
-  host: '127.0.0.1',
-  database: 'ip-map-explorer',
-  password: 'test',
+  user: process.env.DATABASE_USER,
+  host: process.env.DATABASE_HOST,
+  database: process.env.DATABASE_DB,
+  password: process.env.DATABASE_PW,
   port: 5432,
 });
 
